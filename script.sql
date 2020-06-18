@@ -1,5 +1,10 @@
 ---Tablas  de Base de Datos: Projecto 2020-1.
 
+---Integrantes:
+---Felix Blanco
+---Victor Peña
+---Renzo Tenazoa
+
 CREATE TABLE Users(
     id BIGINT PRIMARY KEY,
     imagen VARCHAR(255),
