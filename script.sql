@@ -6,22 +6,24 @@
 ---Renzo Tenazoa
 
 CREATE TABLE Users(
-    id BIGINT PRIMARY KEY,  -- VARCHAR cambiar en el overleaf
+    id VARCHAR(50) PRIMARY KEY,
     imagen VARCHAR(255),     
     Username VARCHAR(50)
 );
 
 CREATE TABLE Record(
-    id BIGINT PRIMARY KEY, -- VARCHAR cambiar en el overleaf
+    id VARCHAR(50) PRIMARY KEY,
     player VARCHAR(50),
-    Catchs DATE,    -- cambiar en el overleaf
-    time_record INT    -- INT cambiar en el overleaf
+    Catchs DATE,
+    time_record INT
 );
 
 CREATE TABLE Course(
-    id BIGINT PRIMARY KEY, -- VARCHAR
-    thumbnail VARCHAR(255), -- VARCHAR cambiar en el overleaf
-    creation DATE   -- eliminar del diccionario difficulty
+    id VARCHAR(50) PRIMARY KEY,
+    thumbnail VARCHAR(255),
+    creation DATE,
+    version_m VARCHAR(15),
+    difficulty VARCHAR(15)
 );
 
 CREATE TABLE Country(
@@ -30,9 +32,9 @@ CREATE TABLE Country(
 );
 
 CREATE TABLE Metadata(
-    Course_id BIGINT,   -- VARCHAR cambiar en el overleaf
-    first_clear VARCHAR(50), -- foreign key, cambiar en el overleaf
-    tag VARCHAR(255), -- INT cambiar en el overleaf
+    Course_id VARCHAR(50),
+    first_clear VARCHAR(50),
+    tag VARCHAR(255),
     starts INT,
     player_tweets INT,
     clears INT,
@@ -40,38 +42,6 @@ CREATE TABLE Metadata(
     clear_rate FLOAT,
     FOREIGN KEY (Course_id) REFERENCES Course (id)
     FOREIGN KEY (first_clear) REFERENCES Users (Username)
-);
-
-CREATE TABLE MarioVersion(
-    difficulty VARCHAR(15),
-    Course_id BIGINT,   -- Añadir en el overleaf
-    FOREIGN KEY (Course_id) REFERENCES Course(id) 
-);
-
-CREATE TABLE MarioBros(
-    game_style VARCHAR(20) PRIMARY KEY, -- Añadir en el oveleaf
-    mversion VARCHAR(30), -- Cambiar en el overleaf
-    difficulty VARCHAR(15)
-);
-
-
-CREATE TABLE MarioWorld(
-    game_style VARCHAR(20) PRIMARY KEY, -- Añadir en el oveleaf
-    año INT,    -- Cambiar en el oveleaf
-    difficulty VARCHAR(15) 
-);
-
-CREATE TABLE MarioBrosU(
-    game_style VARCHAR(20) PRIMARY KEY,
-    isBeta BOOLEAN,
-    difficulty VARCHAR(15)
-);
-
--- Cambiarlo en overlaf, desde AQUÍ
-
-CREATE TABLE Uses (
-    Course_id BIGINT,
-    FOREIGN KEY (Course_id) REFERENCES Course(id) 
 );
 
 CREATE TABLE Creates(
