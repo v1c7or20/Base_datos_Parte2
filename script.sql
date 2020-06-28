@@ -8,7 +8,7 @@
 CREATE TABLE Users(
     id VARCHAR(50) PRIMARY KEY,
     imagen VARCHAR(255) NOT NULL ,     
-    Username VARCHAR(50) NOT NULL
+    Username VARCHAR(50) UNIQUE NOT NULL
 );
 
 CREATE TABLE Record(
@@ -33,15 +33,13 @@ CREATE TABLE Country(
 
 CREATE TABLE Metadata(
     Course_id VARCHAR(50),
-    first_clear VARCHAR(50),
     tag VARCHAR(255) ,
     starts INT  DEFAULT 0 NOT NULL ,
     player_tweets INT DEFAULT 0 NOT NULL,
     clears INT DEFAULT 0 NOT NULL,
     attemps INT DEFAULT 0 NOT NULL,
     clear_rate FLOAT DEFAULT 0 NOT NULL,
-    FOREIGN KEY (Course_id) REFERENCES Course (id),
-    FOREIGN KEY (first_clear) REFERENCES Users (id)
+    FOREIGN KEY (Course_id) REFERENCES Course (id)
 );
 
 CREATE TABLE Creates(
