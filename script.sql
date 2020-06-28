@@ -6,9 +6,9 @@
 ---Renzo Tenazoa
 
 CREATE TABLE Users(
-    id VARCHAR(50) PRIMARY KEY,
+    id VARCHAR(50) UNIQUE NOT NULL,
     imagen VARCHAR(255) NOT NULL ,     
-    Username VARCHAR(50) UNIQUE NOT NULL
+    Username VARCHAR(50) PRIMARY KEY
 );
 
 CREATE TABLE Record(
@@ -46,28 +46,28 @@ CREATE TABLE Creates(
     Course_id VARCHAR(50),
     Maker_id VARCHAR(50),
     FOREIGN KEY (Course_id) REFERENCES Course(id),
-    FOREIGN KEY (Maker_id) REFERENCES Users(id)
+    FOREIGN KEY (Maker_id) REFERENCES Users(Username)
 );
 
 CREATE TABLE User_From(
     Country_name VARCHAR(255),
     User_id VARCHAR(50),
     FOREIGN KEY (Country_name) REFERENCES Country(flag),
-    FOREIGN KEY (User_id) REFERENCES Users(id)
+    FOREIGN KEY (User_id) REFERENCES Users(Username)
 );
 
 
 CREATE TABLE Plays(
     User_id VARCHAR(50),
     Course_id VARCHAR(50),
-    FOREIGN KEY (User_id) REFERENCES Users(id),
+    FOREIGN KEY (User_id) REFERENCES Users(Username),
     FOREIGN KEY (Course_id) REFERENCES Course(id)
 );
 
 CREATE TABLE Likes(
     User_id VARCHAR(50),
     Course_id VARCHAR(50),
-    FOREIGN KEY (User_id) REFERENCES Users(id),
+    FOREIGN KEY (User_id) REFERENCES Users(Username),
     FOREIGN KEY (Course_id) REFERENCES Course(id)
 );
 
@@ -75,9 +75,9 @@ CREATE TABLE Has(
     User_id VARCHAR(50),
     Course_id VARCHAR(50),
     Record_id VARCHAR(50),
-    FOREIGN KEY (User_id) REFERENCES Users(id),
+    FOREIGN KEY (User_id) REFERENCES Users(Username),
     FOREIGN KEY (Course_id) REFERENCES Course(id),
     FOREIGN KEY (Record_id) REFERENCES Record(id)
-);
+); 
 
 
