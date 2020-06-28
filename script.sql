@@ -13,7 +13,6 @@ CREATE TABLE Users(
 
 CREATE TABLE Record(
     id VARCHAR(50) PRIMARY KEY,
-    player VARCHAR(50) NOT NULL,
     Catchs DATE NOT NULL,
     time_record INT NOT NULL
 );
