@@ -80,3 +80,5 @@ CREATE TABLE Has(
 ); 
 
 
+--- comando: COPY Country(flag, cname) <<tabla
+---             FROM '/home/asus/Documents/Code/Base_datos_Parte2/FilesDivided/10000/countries.csv' <<path DELIMITER E'\t' CSV HEADER;
